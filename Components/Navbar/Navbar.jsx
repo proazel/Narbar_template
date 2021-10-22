@@ -9,17 +9,17 @@ const Navbar = () => {
         <NavbarCss>
             <div id="navbarContainer">
                 <HeaderWrap>
-                    {/* 로고 */}
+                    {/* logo */}
                     <div id="logo">
                         <span><RiBearSmileLine size="34" color="#fff" cursor="pointer" /></span>
                     </div>
 
-                    {/* 메뉴 */}
+                    {/* menu */}
                     <div id="menu">
                         <NavbarMenu />
                     </div>
 
-                    {/* 공사중 */}
+                    {/* util */}
                     <div id="util">그 외 메뉴</div>
                 </HeaderWrap>
             </div>

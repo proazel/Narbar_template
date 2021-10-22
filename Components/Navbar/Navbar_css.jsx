@@ -61,7 +61,7 @@ export const HeaderWrap = styled.div`
         color: #fff;
         transition: 0.75s;
     }
-    & > #menu > div > .menuname.clicked {
+    & > #menu > div > .menuname.select {
         color: #fff;
     }
 
