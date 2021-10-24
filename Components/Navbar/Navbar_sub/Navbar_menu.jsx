@@ -22,48 +22,43 @@ const list = [
 const NavbarMenu = () => {
     const handleClick = e => {
         const targetNum = e.target.id.split('menuname', 7)[1];
-        // const selectMenu = document.querySelector('.select');
-        // const showMenu = document.querySelector('.show');
-        // console.log('1 targetNum : ', targetNum);
-        // console.log('2 selectMenu : ', selectMenu);
-        // console.log('3 showMenu : ', showMenu);
-
-        // handleColor
-        const allMenu = document.querySelectorAll('.menuname');
         const targetMenu = document.querySelector(`#menuname${targetNum}`);
-        for (let i = 0; i < allMenu.length; i++) {
-            allMenu[i].setAttribute('class', 'menuname');
-        }
-        targetMenu.setAttribute('class', 'menuname select');
-
-        // handleDrop
+        const targetDrop = document.querySelector(`#menuname${targetNum} > ul`);
+        const allMenu = document.querySelectorAll('.menuname');
         const allDrop = document.querySelectorAll('.dropdown');
-        const targetDrop = document.querySelector(`#dropdown${targetNum}`);
-        for (let i = 0; i < allDrop.length; i++) {
-            allDrop[i].setAttribute('class', 'dropdown');
+
+        if (targetMenu.className == 'menuname' && targetDrop.className == 'dropdown') {
+            for (let i = 0; i < allMenu.length; i++) {
+                allMenu[i].setAttribute('class', 'menuname');
+                allDrop[i].setAttribute('class', 'dropdown');
+            }
+            targetMenu.setAttribute('class', 'menuname select');
+            targetDrop.setAttribute('class', 'dropdown show'); 
+        } else {
+            targetMenu.setAttribute('class', 'menuname');
+            targetDrop.setAttribute('class', 'dropdown');
         }
-        targetDrop.setAttribute('class', 'dropdown show');
     }
 
     return (
-        <>
+        <div id="menu">
             {
                 list.map((v, k) => {
                     return (
-                        <div key={k}>
-                            {/* menu */}
-                            <div
-                                id={"menuname" + k}
-                                className="menuname"
-                                onClick={handleClick}
-                            >
-                                {v.subject}
-                            </div>
+                        // {/* menu */}
+                        <div
+                            id={"menuname" + k}
+                            className="menuname"
+                            onClick={handleClick}
+                            key={k}
+                        >
+                            {v.subject}
 
                             {/* dropdown */}
                             <ul
                                 id={"dropdown" + k}
                                 className="dropdown"
+                                key={k}
                             >
                                 {
                                     v.category.map((v, k) => {
@@ -77,7 +72,7 @@ const NavbarMenu = () => {
                     );
                 })
             }
-        </>
+        </div>
     );
 }
 

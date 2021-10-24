@@ -3,14 +3,6 @@ import styled from 'styled-components';
 export const NavbarCss = styled.div`
     display: flex;
     flex-direction: row;
-    background: rgb(247, 248, 250);
-
-    /* navbarContainer */
-    & > div {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
 `
 
 export const HeaderWrap = styled.div`
@@ -34,6 +26,7 @@ export const HeaderWrap = styled.div`
         align-items: center;
     }
     & > #logo > span {
+        padding: 0 10px;
         transition: 0.75s;
     }
     & > #logo > span:hover {
@@ -44,32 +37,32 @@ export const HeaderWrap = styled.div`
     /* menu */
     & > #menu {
         width: 40%;
-        padding: 10px 0;
         justify-content: right;
     }
 
     /* menuname */
-    & > #menu > div > .menuname {
-        padding: 0 20px;
+    & > #menu > .menuname {
+        display: flex;
+        padding: 10px 20px;
         font-weight: 600;
         color: gray;
         letter-spacing: -0.5px;
-        cursor: pointer;
         transition: 0.75s;
+        cursor: pointer;
     }
-    & > #menu > div > .menuname:hover {
+    & > #menu > .menuname:hover {
         color: #fff;
         transition: 0.75s;
     }
-    & > #menu > div > .menuname.select {
+    & > #menu > .menuname.select {
         color: #fff;
     }
 
     /* dropdown */
-    & > #menu > div > .dropdown {
+    & > #menu > .menuname > .dropdown {
         display: none;
         position: absolute;
-        width: 252px;
+        width: 232px;
         top: 76px;
         padding: 10px 0;
         background: radial-gradient(ellipse farthest-side at center top,#283244 0,rgba(21,26,35,.95) 100%);
@@ -78,14 +71,14 @@ export const HeaderWrap = styled.div`
         animation: dropdown 0.5s;
         animation-fill-mode: both;
     }
-    & > #menu > div > .dropdown.show {
+    & > #menu > .menuname > .dropdown.show {
         display: block;
     }
-    & > #menu > div > .dropdown > li {
+    & > #menu > .menuname > .dropdown > li {
         padding: 10px 20px;
-        cursor: pointer;
+        color: gray;
     }
-    & > #menu > div > .dropdown > li:hover {
+    & > #menu > .menuname > .dropdown > li:hover {
         color: #fff;
         transition: 0.75s;
     }
@@ -93,10 +86,20 @@ export const HeaderWrap = styled.div`
     /* util */
     & > #util {
         width: 10%;
-        padding: 10px 0;
-        color: gray;
-        justify-content: center;
+        justify-content: right;
+    }
+
+    /* viewMode */
+    & > #util > #viewMode {
+        display: flex;
+        padding: 10px 20px;
+        filter: brightness(80%);
+        transition: 0.5s;
         cursor: pointer;
+    }
+    & > #util > #viewMode:hover {
+        filter: brightness(120%);
+        transition: 0.5s;
     }
 
     /* keyframes */

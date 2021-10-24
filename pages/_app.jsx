@@ -1,5 +1,5 @@
 import wrapper from "../Providers/createCtx";
-import './index.css';
+// import './_app.css';
 
 // pageProps == 서버사이드 렌더링 때문에 사용
 const MyApp = ({ Component, pageProps }) => {
